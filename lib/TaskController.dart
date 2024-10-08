@@ -4,8 +4,10 @@ import 'package:path/path.dart';
 import 'models/TaskModel.dart';
 
 class TaskController extends GetxController {
+  // CRUD table database
   static Database? _db;
 
+  // list data yang digunakan untuk menampun hasil database, .obs diguanakan di UI
   var tasks = <TaskModel>[].obs;
 
   Future<Database?> get db async {
@@ -47,10 +49,12 @@ class TaskController extends GetxController {
   Future<void> loadTasks() async {
     var dbClient = await db;
     List<Map<String, dynamic>> queryResult = await dbClient!.query('tasks');
-    tasks.assignAll(queryResult.map((data) => TaskModel.fromMap(data)).toList());
+    tasks
+        .assignAll(queryResult.map((data) => TaskModel.fromMap(data)).toList());
   }
 
   // Update Task
+  /*
   Future<int> updateTask(TaskModel task) async {
     var dbClient = await db;
     int result = await dbClient!.update(
@@ -61,7 +65,7 @@ class TaskController extends GetxController {
     );
     loadTasks();
     return result;
-  }
+  }*/
 
   // Delete Task
   Future<void> deleteTask(int id) async {

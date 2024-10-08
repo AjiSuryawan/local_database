@@ -20,8 +20,8 @@ class TaskListView extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               TaskModel task = TaskModel(
-                title: "titleController.text",
-                description: "descriptionController.text",
+                title: "ini title",
+                description: "ini desc",
               );
               taskController.addTask(task);
             },

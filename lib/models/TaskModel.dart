@@ -1,4 +1,5 @@
 class TaskModel {
+  // task model itu struktur data column2 nya
   int? id;
   String title;
   String description;
@@ -12,6 +13,7 @@ class TaskModel {
   });
 
   // Convert a Task object into a Map object
+  // untuk inserting data ke database
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -22,6 +24,7 @@ class TaskModel {
   }
 
   // Convert a Map object into a Task object
+  // dari database ke UI dalam bentuk object
   factory TaskModel.fromMap(Map<String, dynamic> map) {
     return TaskModel(
       id: map['id'],
